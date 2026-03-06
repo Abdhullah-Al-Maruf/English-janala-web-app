@@ -1,92 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Janala Homepage</title>
-    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
-    <!-- font awesome -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Janala Homepage</title>
+  <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-     <!-- tailwind + daisy ui -->
-      <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- tailwind + daisy ui -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-        <!-- font-google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <!-- font-google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 
-<style>
-*{
-  font-family: "Poppins", sans-serif; 
-}
+  <style>
+    * {
+      font-family: "Poppins", sans-serif;
+    }
 
-.font-bangla{
+    .font-bangla {
       font-family: "Hind Siliguri", sans-serif;
-}
-
-</style>
+    }
+  </style>
 </head>
+
 <body>
-   <header>
-<div class="navbar bg-base-100 shadow-md sticky top-0 z-10  bg-sky-100">
-  <div class="navbar-start">
-    <div class="dropdown">
-      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+  <header>
+    <div class="navbar bg-base-100 shadow-md sticky top-0 z-10  bg-sky-100">
+      <div class="navbar-start">
+        <div class="dropdown">
+          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+            </svg>
+          </div>
+          <ul tabindex="-1" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+            <li><a><i class="fa-solid fa-circle-question"></i>FAQ</a></li>
+            <li><a><i class="fa-solid fa-book-open"></i>Learn</a></a></li>
+            <li><a> <i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></li>
+          </ul>
+        </div>
+        <a class="  flex items-center text-xl gap-1">English
+          <img src="assets/logo.png" alt="">
+          <span class="font-bangla">জানালা</span>
+
+        </a>
       </div>
-      <ul
-        tabindex="-1"
-        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a><i class="fa-solid fa-circle-question"></i>FAQ</a></li>
-        <li><a><i class="fa-solid fa-book-open"></i>Learn</a></a></li>
-        <li><a> <i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></li>
-      </ul>
+      <div class="navbar-end hidden lg:flex">
+        <ul class="menu menu-horizontal px-1 gap-3 ">
+          <li class="btn btn-outline btn-primary"><a><i class="fa-solid fa-circle-question"></i>FAQ</a></li>
+          <li class="btn btn-outline btn-primary"><a> <i class="fa-solid fa-book-open"></i>Learn</a></li>
+          <li class="btn btn-outline btn-primary"><a> <i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
+          </li>
+        </ul>
+      </div>
+                    
     </div>
-    <a class="  flex items-center text-xl gap-1">English 
-        <img src="assets/logo.png" alt="">
-        <span  class="font-bangla">জানালা</span>
 
-    </a>
-  </div>
-  <div class="navbar-end hidden lg:flex">
-    <ul class="menu menu-horizontal px-1 gap-3 ">
-      <li class="btn btn-outline btn-primary"><a><i class="fa-solid fa-circle-question"></i>FAQ</a></li>
-      <li class="btn btn-outline btn-primary"><a> <i class="fa-solid fa-book-open"></i>Learn</a></li>
-      <li class="btn btn-outline btn-primary" ><a> <i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></li>
-    </ul>
-  </div>
-  
-</div>
+  </header>
 
-   </header>
+  <main class="w-[90%] mx-auto gap-12 mt-5">
 
-   <main class="w-[90%] mx-auto mt-5">
-    <section class="flex  flex-col-reverse md:flex-row items-center">
+    <!-- hero section -->
+    <section class="flex  flex-col-reverse md:flex-row items-center ">
       <!-- right div` -->
-       <div class="flex-1 text-center  md:text-left">
+      <div class="flex-1 text-center  md:text-left">
         <h1 class="font-bold  text-3xl mb-2">
           <span class="text-sky-500">English</span>
           is Easy!!
         </h1>
-        <p class="font-bangla ">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
+        <p class="font-bangla ">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে
+          চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
 
         <input type="text" placeholder="enter your name " class="
         mt-3 p-2   border border-gray-300 rounded-md">
         <br>
         <input type="password" placeholder="password " class="mt-3 p-2   border border-gray-300 rounded-md">
-<br>
+        <br>
         <button class="btn btn-primary mt-3">
-        Get Started
+          Get Started
         </button>
-      
-      
-      
-       </div>
 
 
-       <!-- left div -->
+
+      </div>
+
+
+      <!-- left div -->
       <div class="flex-1">
         <img src="assets/hero-student.png" alt="">
 
@@ -94,9 +104,23 @@
 
     </section>
 
+    <!-- lets learn vocabulary section-->
+    <section class="space-y-6">          
+      <div>
+        <h1 class="font-bold text-3xl mt-40 text-center"><span class="text-sky-500 ">Let's</span> Learn Vocabularies
+        </h1>
+      </div>
+      <div id="lesson-container" class="flex flex-wrap gap-5 justify-center">
+         
+      </div>
 
-   </main>
-  
+    </section>
 
+
+
+  </main>
+
+<script src="script/script.js"></script>
 </body>
+
 </html>
