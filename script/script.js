@@ -28,6 +28,9 @@ const displayData = (lessons) => {
     //1. get the  container and clear
     const LessonsContainer = document.getElementById("lesson-container");
     LessonsContainer.innerHTML = ""
+
+
+
     //2. get the each element
     lessons.forEach(lesson => {
         //3. create element for each element 
@@ -67,16 +70,34 @@ const displayLevels = (Levels) => {
     // get the container 
     const LevelContainer = document.getElementById("level-container");
     LevelContainer.innerHTML = "";
+
+    // if no lesson it will show this div else not work
+    if (Levels.length === 0) {
+        LevelContainer.innerHTML =
+            `
+    <div class=" font-bangla text-center space-y-4 col-span-3">
+  <img src="./assets/alert-error.png" alt="" class="mx-auto">
+  <p class="text-gray-600">নেক্সট Lesson এ যান</p>
+  <h1 class="text-3xl font-bold">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</h1>
+</div>
+      `
+
+    }
+
     // get each element
     Levels.forEach(level => {
         // create div for each element 
         const levelDiv = document.createElement("div")
         levelDiv.innerHTML =
             `
-  <div class=" p-10 bg-white rounded-xl  md:p-20 text-center space-y-3  ">
-        <h3>${level.word}</h3>
+  <div class=" p-10 bg-white rounded-xl  md:p-20 text-center space-y-5  ">
+        <h3>"${level.word ? level.word:"শব্দ খুজে পাওয়া জাইনি"}</h3>
         <p>Meaning /Pronounciation</p>
-        <p class="font-bangla">${level.meaning}/${level.pronunciation}</p>
+        <p class="font-bangla">"${level.meaning ? level.meaning:"অর্থ খুজে পাওয়া জাইনি"}  /${level.pronunciation ? level.pronunciation:"pronnciation খুজে পাওয়া জাইনি "}"</p>
+    <div class="flex justify-between mt-4">
+      <button class="btn"><i class="fa-solid fa-circle-info"></i></button>
+      <button class="btn"><i class="fa-solid fa-volume-high"></i></button>
+     </div>
        </div>
        `;
         //append the div into the parent
