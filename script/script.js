@@ -12,14 +12,6 @@
 // }
 
 
-
-// toggle
-const btnToggle=() =>{
-    // get the btn
-
-}
-btnToggle();
-
 // for lesson fetch
 const loadData = async () => {
     try {
@@ -32,6 +24,81 @@ const loadData = async () => {
         console.log("error fetching data ");
     }
 }
+
+loadData();
+// for level card data fetching
+// fetch data
+const loadLevelsData = async (id) => {
+    try {
+        const url = `https://openapi.programming-hero.com/api/level/${id}`
+        const res = await fetch(url);
+        const json = await res.json();
+
+
+// this code is for btn toggling color changing
+
+// add and remove color class according to click
+    const toggleBtns=document.querySelectorAll(".get-btn");
+    toggleBtns.forEach(btn => {
+        btn.classList.remove("active")
+    
+    });
+    // /1. get the btn 
+    const activeBtn =document.getElementById(`active-btn-${id}`)
+    // add color on click
+    activeBtn.classList.add("active")
+    
+   
+        
+        displayLevels(json.data)
+    } catch (error) {
+        console.log("data fetching error");
+    }
+
+}
+
+                // id
+                // : 
+                // 6
+                // level
+                // : 
+                // 5
+                // meaning
+                // : 
+                // "মুগ্ধ করা"
+                // partsOfSpeech
+                // : 
+                // "verb"
+                // points
+                // : 
+                // 4
+                // pronunciation
+                // : 
+                // "ফ্যাসিনেট"
+                // sentence
+                // : 
+                // "The magician's tricks fascinate the audience."
+                // synonyms
+                // : 
+                // (3) ['captivate', 'charm', 'enchant']
+                // word
+                // : 
+                // "Fascinate"
+
+const loadWordMeaning =async (id)=>{
+    try {
+    const url=`https://openapi.programming-hero.com/api/word/${id}`
+    const res=await fetch(url);
+    const meaningData=await res.json();
+    displayWordDetails(meaningData.data)
+    } catch (error) {
+        console.log("failed fetching word meaning Data");
+    }
+
+}
+
+
+
 
 const displayData = (lessons) => {
     //1. get the  container and clear
@@ -54,40 +121,6 @@ const displayData = (lessons) => {
         LessonsContainer.appendChild(btnDiv)
 
     });
-
-}
-
-loadData();
-
-
-// for level card data fetching
-// fetch data
-const loadLevelsData = async (id) => {
-    try {
-        const url = `https://openapi.programming-hero.com/api/level/${id}`
-        const res = await fetch(url);
-        const json = await res.json();
-
-
-// this code is for btn toggling color changing
-
-// add and remove color class according to click
-    const toggleBtns=document.querySelectorAll(".get-btn");
-    toggleBtns.forEach(btn => {
-        btn.classList.remove("active")
-    
-    });
-    // /1. get the btn 
-    const activeBtn =document.getElementById(`active-btn-${id}`)
-    activeBtn.classList.add("active")
-    
-    // add color on click
-   
-        
-        displayLevels(json.data)
-    } catch (error) {
-        console.log("data fetching error");
-    }
 
 }
 
@@ -121,7 +154,8 @@ const displayLevels = (Levels) => {
         <p>Meaning /Pronounciation</p>
         <p class="font-bangla">"${level.meaning ? level.meaning:"অর্থ খুজে পাওয়া জাইনি"}  /${level.pronunciation ? level.pronunciation:"pronnciation খুজে পাওয়া জাইনি "}"</p>
     <div class="flex justify-between mt-4">
-      <button class="btn"><i class="fa-solid fa-circle-info"></i></button>
+    
+      <button onclick="loadWordMeaning(${level.id})" class="btn"><i class="fa-solid fa-circle-info"></i></button>
       <button class="btn"><i class="fa-solid fa-volume-high"></i></button>
      </div>
        </div>
@@ -131,6 +165,46 @@ const displayLevels = (Levels) => {
         LevelContainer.appendChild(levelDiv)
     });
 
+}
+
+const displayWordDetails =(details)=>{
+    // get element and empty it
+    const detailsContainer =document.getElementById("parent-container")
+   
+        detailsContainer.innerHTML=
+     
+       `
+          <div class="space-y-6">
+          
+           <h2> Eager ( <i class="fa-solid fa-microphone-lines"></i> :ইগার)</h2>
+      <div> 
+        <h3>Meaning</h3>
+        <p>আগ্রহী</p>
+      </div>
+        <div>
+          <h3>Example</h3>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid, ullam?
+          </p>
+        </div>
+            <div>
+              <h2>সমার্থক শব্দ গুলো</h2>
+              <span class="btn btn-info">Enthusiastic</span> 
+              <span class="btn btn-info">lorm</span>
+              <span class="btn btn-info">lorem</span>
+       
+          
+          
+          
+          </div>
+       
+       `;
+  
+
+
+
+    // this is for show modal
+    document.getElementById("word_details_modal").showModal();
 }
 
 
