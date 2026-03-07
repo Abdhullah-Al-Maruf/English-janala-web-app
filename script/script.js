@@ -11,6 +11,15 @@
 //     })
 // }
 
+
+
+// toggle
+const btnToggle=() =>{
+    // get the btn
+
+}
+btnToggle();
+
 // for lesson fetch
 const loadData = async () => {
     try {
@@ -37,7 +46,7 @@ const displayData = (lessons) => {
         const btnDiv = document.createElement("div")
         btnDiv.innerHTML =
             `
-         <button onclick="loadLevelsData(${lesson.level_no}) "  class="btn btn-outline btn-primary"> 
+         <button id="active-btn-${lesson.level_no}" onclick="loadLevelsData(${lesson.level_no}) "  class="get-btn btn btn-primary btn-outline "> 
          <i class="fa-solid fa-book-open"></i>Lesson-${lesson.level_no}</button>
         `
 
@@ -58,6 +67,23 @@ const loadLevelsData = async (id) => {
         const url = `https://openapi.programming-hero.com/api/level/${id}`
         const res = await fetch(url);
         const json = await res.json();
+
+
+// this code is for btn toggling color changing
+
+// add and remove color class according to click
+    const toggleBtns=document.querySelectorAll(".get-btn");
+    toggleBtns.forEach(btn => {
+        btn.classList.remove("active")
+    
+    });
+    // /1. get the btn 
+    const activeBtn =document.getElementById(`active-btn-${id}`)
+    activeBtn.classList.add("active")
+    
+    // add color on click
+   
+        
         displayLevels(json.data)
     } catch (error) {
         console.log("data fetching error");
