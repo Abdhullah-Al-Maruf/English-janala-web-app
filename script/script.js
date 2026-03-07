@@ -1,7 +1,6 @@
 // async function loadData() { 
 // const res = await fetch(url); 
 // const data = await res.json(); }
-
 // loadData()= ()=>{
 //     fetch(url)
 //     .then((res)=>res.json())
@@ -11,17 +10,40 @@
 //     })
 // }
 
+// function for createElement  span  for every element using map
+const createElement=(array)=>{
+const element=array.map(el=>(`<span class="btn bg-[#EDF7FF]">${el}</span>
+      `))
+      return element.join(" ") // it will convert array to string join();
+};
+
+// manage spinner 
+const manageSpinner=(status)=>{
+    if (status ===true) {
+        document.getElementById("skeleton-loader").classList.remove("hidden");
+        document.getElementById("level-container").classList.add("hidden")
+
+    }else{
+        document.getElementById( "level-container").classList.remove("hidden");
+        document.getElementById("skeleton-loader").classList.add("hidden")
+
+    }
+
+}
+
+
 
 // for lesson fetch
 const loadData = async () => {
     try {
+
         //data from this api
         const url = "https://openapi.programming-hero.com/api/levels/all"
         const res = await fetch(url)
         const jsonData = await res.json();
         displayData(jsonData.data);
     } catch (error) {
-        console.log("error fetching data ");
+        console.log("error fetching data "); 
     }
 }
 
@@ -29,7 +51,9 @@ loadData();
 // for level card data fetching
 // fetch data
 const loadLevelsData = async (id) => {
+  
     try {
+        manageSpinner(true);
         const url = `https://openapi.programming-hero.com/api/level/${id}`
         const res = await fetch(url);
         const json = await res.json();
@@ -45,46 +69,15 @@ const loadLevelsData = async (id) => {
     });
     // /1. get the btn 
     const activeBtn =document.getElementById(`active-btn-${id}`)
-    // add color on click
+    // add color on click                               
     activeBtn.classList.add("active")
-    
-   
-        
-        displayLevels(json.data)
+          displayLevels(json.data)
+          manageSpinner(false);
     } catch (error) {
         console.log("data fetching error");
     }
 
 }
-
-                // id
-                // : 
-                // 6
-                // level
-                // : 
-                // 5
-                // meaning
-                // : 
-                // "মুগ্ধ করা"
-                // partsOfSpeech
-                // : 
-                // "verb"
-                // points
-                // : 
-                // 4
-                // pronunciation
-                // : 
-                // "ফ্যাসিনেট"
-                // sentence
-                // : 
-                // "The magician's tricks fascinate the audience."
-                // synonyms
-                // : 
-                // (3) ['captivate', 'charm', 'enchant']
-                // word
-                // : 
-                // "Fascinate"
-
 const loadWordMeaning =async (id)=>{
     try {
     const url=`https://openapi.programming-hero.com/api/word/${id}`
@@ -176,23 +169,22 @@ const displayWordDetails =(details)=>{
        `
           <div class="space-y-6">
           
-           <h2> Eager ( <i class="fa-solid fa-microphone-lines"></i> :ইগার)</h2>
+           <h2>${details.word} ( <i class="fa-solid fa-microphone-lines"></i> :${details.pronunciation})</h2>
       <div> 
         <h3>Meaning</h3>
-        <p>আগ্রহী</p>
+        <p>${details.meaning}</p>
       </div>
         <div>
           <h3>Example</h3>
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid, ullam?
+           ${details.sentence}
           </p>
         </div>
             <div>
               <h2>সমার্থক শব্দ গুলো</h2>
-              <span class="btn btn-info">Enthusiastic</span> 
-              <span class="btn btn-info">lorm</span>
-              <span class="btn btn-info">lorem</span>
-       
+              <div>
+                  ${createElement(details.synonyms)}
+              </div>
           
           
           

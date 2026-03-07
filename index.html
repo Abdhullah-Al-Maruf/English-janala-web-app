@@ -30,8 +30,9 @@
     .font-bangla {
       font-family: "Hind Siliguri", sans-serif;
     }
-    .active{
-      background-color:blue  ;
+
+    .active {
+      background-color: blue;
       color: white;
     }
   </style>
@@ -115,9 +116,51 @@
       <div id="lesson-container" class="flex flex-wrap gap-5 justify-center">
         <!-- the data will load  from api in js -->
       </div>
+ 
+<!-- skeleton loader (replaces spinner) -->
+  <div id="skeleton-loader" class="col-span-3 grid grid-cols-1 md:grid-cols-3 gap-5 hidden">
+    <!-- Skeleton card 1 -->
+    <div class="flex w-full flex-col gap-4 bg-white p-5 rounded-xl">
+      <div class="skeleton h-32 w-full"></div>
+      <div class="skeleton h-4 w-28"></div>
+      <div class="skeleton h-4 w-full"></div>
+      <div class="skeleton h-4 w-full"></div>
+      <div class="flex justify-between mt-4">
+        <div class="skeleton h-10 w-10 rounded-btn"></div>
+        <div class="skeleton h-10 w-10 rounded-btn"></div>
+      </div>
+    </div>
+    
+    <!-- Skeleton card 2 -->
+    <div class="flex w-full flex-col gap-4 bg-white p-5 rounded-xl">
+      <div class="skeleton h-32 w-full"></div>
+      <div class="skeleton h-4 w-28"></div>
+      <div class="skeleton h-4 w-full"></div>
+      <div class="skeleton h-4 w-full"></div>
+      <div class="flex justify-between mt-4">
+        <div class="skeleton h-10 w-10 rounded-btn"></div>
+        <div class="skeleton h-10 w-10 rounded-btn"></div>
+      </div>
+    </div>
+    
+    <!-- Skeleton card 3 -->
+    <div class="flex w-full flex-col gap-4 bg-white p-5 rounded-xl">
+      <div class="skeleton h-32 w-full"></div>
+      <div class="skeleton h-4 w-28"></div>
+      <div class="skeleton h-4 w-full"></div>
+      <div class="skeleton h-4 w-full"></div>
+      <div class="flex justify-between mt-4">
+        <div class="skeleton h-10 w-10 rounded-btn"></div>
+        <div class="skeleton h-10 w-10 rounded-btn"></div>
+      </div>
+    </div>
+  </div>
+
+
+
 
       <div id="level-container" class="rounded-md bg-base-300  p-15 grid  grid-cols-1 md:grid-cols-3 gap-5 ">
-    
+
         <div class="text-center col-span-3 space-y-6 font-bangla">
           <p class="text-gray-500  ">আপনি এখনো কোন Lesson Select করেন নি </p>
           <h2 class="font-bold text-4xl">একটি Lesson Select করুন।</h2>
@@ -126,24 +169,22 @@
       </div>
     </section>
 
-<!-- modal part -->
-<!-- Open the modal using ID.showModal() method -->
-<dialog id="word_details_modal" class="modal modal-bottom sm:modal-middle">
-  <div class="modal-box">
+    <!-- modal part -->
+    <!-- Open the modal using ID.showModal() method -->
+    <dialog id="word_details_modal" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
 
-    <div id="parent-container" >
-      
-      
-            </div>
-     <div class="modal-action">
-      <form method="dialog">
-        <!-- if there is a button in form, it will close the modal -->
-        <button class="btn">Close</button>
-      </form>
-    </div>
-  </div>
-</dialog>
+        <div id="parent-container">
 
+        </div>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
   </main>
 
   <script src="script/script.js"></script>
