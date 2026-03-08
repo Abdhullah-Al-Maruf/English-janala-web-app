@@ -10,6 +10,7 @@
 //     })
 // }
 
+
 // function for createElement  span  for every element using map
 const createElement=(array)=>{
 const element=array.map(el=>(`<span class="btn bg-[#EDF7FF]">${el}</span>
@@ -31,6 +32,21 @@ const manageSpinner=(status)=>{
 
 }
 
+// add and remove color class according to click
+const removeActive=()=>{
+const toggleBtns=document.querySelectorAll(".get-btn");
+    toggleBtns.forEach(btn => {
+        btn.classList.remove("active")
+    
+    });
+}
+
+// pronounciation
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; // English
+  window.speechSynthesis.speak(utterance);
+}
 
 
 // for lesson fetch
@@ -61,15 +77,12 @@ const loadLevelsData = async (id) => {
 
 // this code is for btn toggling color changing
 
-// add and remove color class according to click
-    const toggleBtns=document.querySelectorAll(".get-btn");
-    toggleBtns.forEach(btn => {
-        btn.classList.remove("active")
+
     
-    });
     // /1. get the btn 
     const activeBtn =document.getElementById(`active-btn-${id}`)
-    // add color on click                               
+    // add color on click    
+    removeActive();                           
     activeBtn.classList.add("active")
           displayLevels(json.data)
           manageSpinner(false);
@@ -149,7 +162,7 @@ const displayLevels = (Levels) => {
     <div class="flex justify-between mt-4">
     
       <button onclick="loadWordMeaning(${level.id})" class="btn"><i class="fa-solid fa-circle-info"></i></button>
-      <button class="btn"><i class="fa-solid fa-volume-high"></i></button>
+      <button onclick="pronounceWord('${level.word}')"  class="btn"><i class="fa-solid fa-volume-high"></i></button>
      </div>
        </div>
        `;
@@ -199,4 +212,31 @@ const displayWordDetails =(details)=>{
     document.getElementById("word_details_modal").showModal();
 }
 
+
+
+document.getElementById("search-btn").addEventListener("click",()=>{
+    // document.getElementById("input-search").value=""
+    const searchInput=document.getElementById("input-search")
+    // get the value from the search
+    const inputValue=searchInput.value.trim().toLowerCase();
+    removeActive();
+    // fetch the data from api
+    const url="https://openapi.programming-hero.com/api/words/all"
+    fetch(url)
+    .then((res)=>res.json())
+    .then((data)=> {
+        // get all data
+        const allData=data.data;
+        //filter all word 
+        const filterwords=allData.filter((word)=>
+            word.word.toLowerCase().includes(inputValue)
+        );
+        
+        displayLevels(filterwords)
+
+
+    } )
+
+    
+})
 
